@@ -3,15 +3,17 @@
 
 using namespace std;
 
-void print10();
+void print(int n);
 
 int main()
 {
     char inp = 'x';
     bool run = true;
+    int n = 0;
 
     while (run) {
-        print10();
+        print(n);
+        n += 10;
 
         while(inp != 'y') {
             cout << "Do you wish to continue(y/n)?";
@@ -24,7 +26,7 @@ int main()
     return 0;
 }
 
-void print10() {
+void print(int n) {
     ifstream fin;
     int counter = 0;
     string s;
@@ -32,8 +34,10 @@ void print10() {
     fin.open("text.txt");
 
     if (fin.is_open()) {
+        if (n > 0)
+            fin.seekg((n*8)-9, fin.beg);
 
-        while(!fin.eof()) {
+        while(!fin.eof() && counter < 10) {
             getline(fin, s);
             cout << s << endl;
             counter++;
