@@ -41,12 +41,13 @@ void print(int n) {
             getline(fin, s);
             cout << s << endl;
             counter++;
-        } // END STREAM
+        }
 
         fin.close();
         counter = 0;
 
     }  else {
         cout << "Unable to read file";
-    }// END IF
+    }
+
 }
